@@ -3,7 +3,8 @@ package com.okysoft.androidannotationstest;
 import android.app.Activity;
 import android.widget.ListView;
 
-import org.androidannotations.annotations.AfterInject;
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
@@ -14,10 +15,12 @@ public class MyActivity2 extends Activity {
 
     @ViewById(R.id.listView)ListView listView;
 
+    @Bean MyListAdapter myListAdapter;
 
-    @AfterInject
+    @AfterViews
     void init(){
 
+        listView.setAdapter(myListAdapter);
 
     }
 
